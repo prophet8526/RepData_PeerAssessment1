@@ -230,26 +230,7 @@ stepMedian &lt;- median(stepSum$steps)
 
 <pre><code class="r">if(&quot;dplyr&quot; %in% rownames(installed.packages()) == FALSE) {install.packages(&quot;dplyr&quot;)}
 library(dplyr)
-</code></pre>
-
-<pre><code>## Warning: package &#39;dplyr&#39; was built under R version 3.2.3
-</code></pre>
-
-<pre><code>## 
-## Attaching package: &#39;dplyr&#39;
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-</code></pre>
-
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
-
-<pre><code class="r">intervalSum &lt;- aggregate(steps~interval, cleanActivity, sum)
+intervalSum &lt;- aggregate(steps~interval, cleanActivity, sum)
 intervalSumAve &lt;- mutate(intervalSum, aveSteps=steps/54)
 stepMax &lt;- format(max(intervalSumAve$aveSteps), digits =5)
 intervalMax &lt;- intervalSumAve[intervalSumAve$aveSteps == max(intervalSumAve$aveSteps),1]

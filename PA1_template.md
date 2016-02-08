@@ -41,30 +41,6 @@ We will use the cleanActivity data set again. This time, we will use the aggrega
 ```r
 if("dplyr" %in% rownames(installed.packages()) == FALSE) {install.packages("dplyr")}
 library(dplyr)
-```
-
-```
-## Warning: package 'dplyr' was built under R version 3.2.3
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 intervalSum <- aggregate(steps~interval, cleanActivity, sum)
 intervalSumAve <- mutate(intervalSum, aveSteps=steps/54)
 stepMax <- format(max(intervalSumAve$aveSteps), digits =5)
